@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BMI.MainPage">
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="BMI CALC" FontSize="70" HorizontalOptions="Center"></Label>
+            <Label Text="select gender" FontSize="28" Margin="30" HorizontalOptions="Center"></Label>
+            <HorizontalStackLayout  HorizontalOptions="Center" VerticalOptions="Start" >
+                <RadioButton Value="male"  >
+                    <RadioButton.Content>
+                        <Image Source="maleicon.jpg" HeightRequest="70" WidthRequest="70" ></Image>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Value="female"  >
+                    <RadioButton.Content>
+                        <Image Source="femaleicon.jpg" HeightRequest="70" WidthRequest="70"></Image>
+                    </RadioButton.Content>
+                </RadioButton>
+            </HorizontalStackLayout>
+            <Label Text="select weight" FontSize="28" HorizontalOptions="Center" Margin="21"></Label>
+            <Stepper x:Name="weight" Maximum="200"  HorizontalOptions="Center" Margin="7" ></Stepper>
+            <Label Text="{Binding Source={x:Reference weight}, Path=Value, StringFormat='weight : {0:F0}'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+            <Label Text="select hight" FontSize="28" HorizontalOptions="Center" Margin="21"></Label>
+            <Label Text="(in centimeters)" FontSize="10" HorizontalOptions="Center" Margin="0"></Label>
+            <Slider x:Name="hight" Minimum="110" Maximum="220" ></Slider>
+            <Label Text="{Binding Source={x:Reference hight}, Path=Value, StringFormat='hight : {0:F0}'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            
+                <Button x:Name="calc" Text="find my BMI" Clicked="calc_Clicked" ></Button>
+            
+            <Label x:Name="bmival" HorizontalOptions="Center"></Label>
+
+        </StackLayout>
+        
+        
+       
+    </ScrollView>
+
+</ContentPage>
